@@ -18,15 +18,15 @@ def remove_duplicates(l): # remove duplicates and unURL string
 
 for link in soup.find_all('a', href=True):
     data.append(str(link.get('href')))
-flag = True
-remove_duplicates(data)
+    flag = True
+    remove_duplicates(data)
 while flag:
     try:
         for link in links:
             for j in soup.find_all('a', href=True):
                 temp = []
                 source_code = requests.get(link)
-                soup = BeautifulSoup(source_code.content, 'html')
+                soup = BeautifulSoup(source_code.content, 'html.parser')
                 temp.append(str(j.get('href')))
                 remove_duplicates(temp)
 
