@@ -42,4 +42,4 @@ while flag:
             break
 
 for url in links:
-print(url)
+    print(url)
