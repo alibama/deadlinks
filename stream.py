@@ -4,7 +4,7 @@ import re
 import time
 
 source_code = requests.get('https://guides.hsl.virginia.edu/')
-soup = BeautifulSoup(source_code.content, 'lxml')
+soup = BeautifulSoup(source_code.content, 'html.parser')
 data = []
 links = []
 
@@ -26,7 +26,7 @@ while flag:
             for j in soup.find_all('a', href=True):
                 temp = []
                 source_code = requests.get(link)
-                soup = BeautifulSoup(source_code.content, 'lxml')
+                soup = BeautifulSoup(source_code.content, 'html')
                 temp.append(str(j.get('href')))
                 remove_duplicates(temp)
 
